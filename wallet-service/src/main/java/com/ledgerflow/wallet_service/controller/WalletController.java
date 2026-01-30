@@ -6,11 +6,14 @@ import com.ledgerflow.wallet_service.repository.TransactionRepository;
 import com.ledgerflow.wallet_service.repository.WalletRepository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin; // <--- ADD THIS IMPORT
+
 import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/wallets")
+@CrossOrigin(origins = "*") // <--- ADD THIS ANNOTATION (Fixes the CORS Error)
 public class WalletController {
 
     private final WalletRepository walletRepository;
